@@ -1,8 +1,10 @@
 {% load static %}
 <!DOCTYPE html>
+<!--suppress ALL -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href='{% static "/css/style.css" %}'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Homepage</title>
@@ -19,7 +21,8 @@
             <ul class="navbar-nav">
                 {% if user.is_authenticated %}
                     <li class="nav-item ">
-                        <a class="nav-link" href="{% url 'reservation' %}">Reservierung <span class="sr-only"></span></a>
+                        <a class="nav-link" href="{% url 'reservation' %}">Reservierung <span
+                                class="sr-only"></span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'logout' %}">Logout</a>
@@ -55,18 +58,18 @@
 {% endif %}
 <div class="container" style="margin-bottom: 60px">
     {% block content %}{% endblock %}
-<footer id="sticky-footer" class="py-2 bg-dark text-white-50 fixed-bottom">
-<div class="row">
-                <div style="left: 20px; margin-left: 30px">
+    <footer id="sticky-footer" class="py-2 bg-dark text-white-50 fixed-bottom">
+        <div class="row">
+            <div style="left: 20px; margin-left: 30px">
                 <small>Copyright &copy; UberO</small>
             </div>
             <div style="right: 20px; position: absolute">
                 <small> by Florian Kürschner & Sladjan Vasic</small>
             </div>
+        </div>
+    </footer>
 </div>
-</footer>
-</div>
-
+<script src="{% static 'js/googlemapsapi.js' %}"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -76,6 +79,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuSnoh7D4thkLjWdv9V7jTE0YJfktwXV4&callback=createMap&libraries=places"
+        async defer></script>
 </body>
-
 </html>

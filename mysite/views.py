@@ -9,6 +9,11 @@ def home(request):
 
 
 def reservation(request):
+    if request.method == "POST":
+        von = request.POST.get('von')
+        nach = request.POST.get('nach')
+        messages.success(request, f'Weg von {von} nach {nach}!')
+        redirect('reservation')
     return render(request, 'pages/Bestellung.html')
 
 

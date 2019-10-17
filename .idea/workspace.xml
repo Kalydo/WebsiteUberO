@@ -45,11 +45,16 @@
     </expand>
     <select />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="UberO" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -57,14 +62,16 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\retor\PycharmProjects\UberO\mysite" />
-      <recent name="C:\Users\retor\PycharmProjects\UberO\static\images" />
-      <recent name="C:\Users\retor\PycharmProjects\UberO\templates\registration" />
+      <recent name="C:\Users\retor\PycharmProjects\UberO\mysite\static" />
       <recent name="C:\Users\retor\PycharmProjects\UberO\templates\pages" />
+      <recent name="C:\Users\retor\PycharmProjects\UberO\templates\css" />
+      <recent name="C:\Users\retor\PycharmProjects\UberO\templates" />
+      <recent name="C:\Users\retor\PycharmProjects\UberO\templates\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -130,6 +137,9 @@
       <workItem from="1571113776944" duration="5688000" />
       <workItem from="1571134272763" duration="12809000" />
       <workItem from="1571165261482" duration="4016000" />
+      <workItem from="1571200321885" duration="5016000" />
+      <workItem from="1571248600323" duration="12943000" />
+      <workItem from="1571322618723" duration="689000" />
     </task>
     <servers />
   </component>
