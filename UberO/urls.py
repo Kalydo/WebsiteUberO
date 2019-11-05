@@ -28,5 +28,6 @@ urlpatterns = [
     path('register/', mysite_views.register, name="register"),
     path('about/', mysite_views.about, name="about"),
     path('reservation/', mysite_views.reservation, name="reservation"),
+    path('profile/', mysite_views.profile, name="profil"),
     path('', mysite_views.index, name="homepage"),
 ]

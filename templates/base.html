@@ -10,7 +10,7 @@
     <title>Homepage</title>
 </head>
 <header>
-    <nav class="py-2 navbar navbar-expand-sm bg-dark navbar-dark">
+    <nav class="py-2 navbar navbar-expand-sm bg-dark navbar-dark" >
         <img src="{% static 'images/UberO_Logo.PNG' %}" class="Responsive image" style="height: 40px; border-radius: 50%; margin-right: 20px">
         <a class="navbar-brand" href="{% url 'index' %}">UberO</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -31,7 +31,7 @@
                         <a class="nav-link" href="{% url 'about' %}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Angemeldet als {{ user.username }}</a>
+                        <a class="nav-link" href="{% url 'profil' %}">{{ user.username }}</a>
                     </li>
                 {% else %}
                     <li class="nav-item">

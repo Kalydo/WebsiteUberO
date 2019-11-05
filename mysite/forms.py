@@ -1,19 +1,48 @@
 from django import forms
-from .models import User_from_my_db
-from django.contrib.auth import hashers
+from .models import User_from_my_db, ReservationForm
+from datetimepicker.widgets import DateTimePicker
+
+
+class ReservationsForm(forms.ModelForm):
+
+    class Meta:
+        model = ReservationForm
+        fields = ('title', 'ticket_number', 'taxi_driver',
+                  'from_street', 'from_street_number', 'from_plz','from_loc',
+                  'to_street', 'to_street_number', 'to_plz', 'to_loc', 'order_time',
+                  )
+
+        labels = {
+            'title': 'Anzahl Personen',
+            'ticket_number': 'Ticketnummer',
+            'taxi_driver': 'Taxifahrer',
+            'from_street': 'Strasse',
+            'from_street_number': 'Hausnummer',
+            'from_plz': 'Postleitzahl',
+            'from_loc': 'Stadt',
+            'to_street': 'Strasse',
+            'to_street_number': 'Hausnummer',
+            'to_plz': 'Postleitzahl',
+            'to_loc': 'Stadt',
+            'order_time': 'Zeit',
+        }
 
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Confirm password', widget=forms.PasswordInput)
+    password2 = forms.CharField(label='Passwort wiederholen', widget=forms.PasswordInput)
+    email = forms.EmailField(label='E-Mail')
+    first_name = forms.CharField(label='Name')
+    last_name = forms.CharField(label='Nachname')
 
     class Meta:
         model = User_from_my_db
-        fields = ('username', 'email', 'first_name', 'password',
-                  'last_name', 'street', 'street_number', 'city', 'plz')
+        fields = ('username', 'email', 'first_name',
+                  'last_name', 'street', 'street_number', 'city', 'plz', 'password',)
 
         labels = {
             'username': 'Benutzername',
+            'password': 'Passwort',
             'first_name': 'Name',
             'last_name': 'Nachname',
             'email': 'E-Mail',
@@ -22,6 +51,12 @@ class UserForm(forms.ModelForm):
             'plz': 'Postleitzahl',
             'city': 'Stadt'
         }
+
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if email is "":
+            raise forms.ValidationError("Bitte gib eine E-Mail an", code='missing_email', )
+        return email
 
     def clean_city(self):
         city = self.cleaned_data['city']
@@ -52,7 +87,7 @@ class UserForm(forms.ModelForm):
         password = self.cleaned_data.get('password')
         password2 = self.cleaned_data.get('password2')
         if password and password2 and password != password2:
-            raise forms.ValidationError("Passwords don't match")
+            raise forms.ValidationError("Stimmt nicht überein")
         return password
 
     def save(self, commit=True):

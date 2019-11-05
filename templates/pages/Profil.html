@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!--suppress ALL -->
+    <div class="container-fluid">
+  <div class="col justify-content-center">
+    <div class="row justify-content-end">
+        <ul class="list-group">
+        <li class="list-group-item list-group-item-dark">Angemeldet als</li>
+        <li class="list-group-item ">{{ user.username }}</li>
+    </ul>
+    </div>
+    <div class="row justify-content-end">
+            <ul class="list-group">
+        <li class="list-group-item list-group-item-dark">Benutzer Informationen</li>
+    </ul>
+    </div>
+    <div class="row justify-content-end">
+            <ul class="list-group">
+        <li class="list-group-item list-group-item-dark">Name</li>
+        <li class="list-group-item ">{{ user.first_name }}</li>
+    </ul>
+    </div>
+    <div class="row justify-content-end">
+        <ul class="list-group">
+        <li class="list-group-item list-group-item-dark">Nachname</li>
+        <li class="list-group-item ">{{ user.last_name }}</li>
+    </ul>
+    </div>
+      <div class="row justify-content-end">
+              <ul class="list-group">
+        <li class="list-group-item list-group-item-dark">E-Mail</li>
+        <li class="list-group-item ">{{ user.email }}</li>
+    </ul>
+      </div>
+      <div class="row justify-content-end">
+              <ul class="list-group">
+        <li class="list-group-item list-group-item-dark">Strasse</li>
+        <li class="list-group-item ">{{ user.street }}</li>
+    </ul>
+      </div>
+      <div class="row justify-content-end">
+            <ul class="list-group">
+        <li class="list-group-item list-group-item-dark">Hausnummer</li>
+        <li class="list-group-item ">{{ user.street_number }}</li>
+    </ul>
+      </div>
+      <div class="row justify-content-end">
+              <ul class="list-group">
+        <li class="list-group-item list-group-item-dark">Postleitzahl</li>
+        <li class="list-group-item ">{{ user.plz }}</li>
+    </ul>
+      </div>
+      <div class="row justify-content-end">
+
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-dark">Stadt</li>
+        <li class="list-group-item ">{{ user.city }}</li>
+    </ul>
+      </div>
+      <div class="row">
+
+      </div>
+      <div class="row">
+
+      </div>
+  </div>
+  </div>
+
+     {% if all_records %}
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">User</th>
+                    <th scope="col">Ticketnummer</th>
+                    <th scope="col">Bestellzeit</th>
+                    <th scope="col">Taxifahrer</th>
+                    <th scope="col">Anzahl Personen</th>
+                </tr>
+                </thead>
+                {% for record in all_records %}
+                <tbody>
+                <tr>
+                    <th scope="row">{{ record.user }}</th>
+                    <td>{{ record.ticket_number }}</td>
+                    <td>{{ record.order_time}}</td>
+                    <td>{{ record.taxi_driver }}</td>
+                    <td>{{ record.title }}</td>
+                </tr>
+                </tbody>
+                {% endfor %}
+   {% endif %}
+         </table>
+{% endblock %}
+
