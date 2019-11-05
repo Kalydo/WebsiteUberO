@@ -3,8 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.db import transaction
 from django.shortcuts import render, redirect
-from mysite.forms import UserForm, UserAdditional
-
+from mysite.forms import UserForm
 
 
 def home(request):
@@ -32,23 +31,18 @@ def logout(request):
 def register(request):
     if request.method == "POST":
         form = UserForm(request.POST)
-        formadd = UserAdditional(request.POST)
-        if form.is_valid and formadd.is_valid():
+        if form.is_valid:
             form.save()
-            formadd.save()
-            return redirect('register')
+            return redirect('login')
         else:
             messages.error(request, 'Ups da ist was vergessen gegangen :(')
             return render(request, 'registration/register.html', {
                 'form': form,
-                'formadd': formadd
             })
     else:
         form = UserForm(request.POST)
-        formadd = UserAdditional(request.POST)
         return render(request, 'registration/register.html', {
             'form': form,
-            'formadd': formadd
         })
 
 
