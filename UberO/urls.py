@@ -27,6 +27,6 @@ urlpatterns = [
     path('home/', mysite_views.home, name="index"),
     path('register/', mysite_views.register, name="register"),
     path('about/', mysite_views.about, name="about"),
-    path('reservierung/', mysite_views.reservation, name="reservation"),
+    path('reservation/', mysite_views.reservation, name="reservation"),
     path('', mysite_views.index, name="homepage"),
 ]
