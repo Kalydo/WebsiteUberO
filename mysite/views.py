@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.db import transaction
 from django.shortcuts import render, redirect
 from mysite.forms import UserForm
+from django.contrib.auth.hashers import make_password
+
 
 
 def home(request):
@@ -28,10 +30,14 @@ def logout(request):
     return render(request, 'registration/logged_out.html')
 
 
+
+
+
 def register(request):
     if request.method == "POST":
         form = UserForm(request.POST)
-        if form.is_valid:
+        if form.is_valid():
+            form.password = make_password('password')
             form.save()
             return redirect('login')
         else:
