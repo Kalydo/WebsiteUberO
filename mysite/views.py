@@ -3,9 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.db import transaction
 from django.shortcuts import render, redirect
-from mysite.forms import UserForm
+from mysite.forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.hashers import make_password
-
 
 
 def home(request):
@@ -30,15 +29,14 @@ def logout(request):
     return render(request, 'registration/logged_out.html')
 
 
-
-
-
 def register(request):
     if request.method == "POST":
-        form = UserForm(request.POST)
+        form = UserRegisterForm(request.POST)
         if form.is_valid():
-            form.password = make_password('password')
+            # form.password = make_password('password')
             form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Account created for {username}! You are now able to log in!')
             return redirect('login')
         else:
             messages.error(request, 'Ups da ist was vergessen gegangen :(')
@@ -46,7 +44,7 @@ def register(request):
                 'form': form,
             })
     else:
-        form = UserForm(request.POST)
+        form = UserRegisterForm()
         return render(request, 'registration/register.html', {
             'form': form,
         })
@@ -54,3 +52,23 @@ def register(request):
 
 def about(request):
     return render(request, 'pages/about.html')
+
+@login_required
+def profile(request):
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f'Your account has been updated!')
+            return redirect('profile')
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+
+    context = {
+        'u_form': u_form,
+        'p_form': p_form
+    }
+    return render(request, 'pages/profile.html', context)

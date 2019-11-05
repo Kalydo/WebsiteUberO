@@ -1,15 +1,17 @@
 from django import forms
-from .models import User_from_my_db
+from django.contrib.auth.forms import UserCreationForm
+
+from .models import User_from_my_db, Profile
+from django.contrib.auth.models import User
+
 from django.contrib.auth import hashers
 
 
-class UserForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Confirm password', widget=forms.PasswordInput)
+class UserRegisterForm(UserCreationForm):
 
     class Meta:
         model = User_from_my_db
-        fields = ('username', 'email', 'first_name', 'password',
+        fields = ('username','password1', 'password2', 'email', 'first_name',
                   'last_name', 'street', 'street_number', 'city', 'plz')
 
         labels = {
@@ -47,17 +49,16 @@ class UserForm(forms.ModelForm):
             raise forms.ValidationError("Bitte gib eine gültige Postleitzahl ein", code="missing_plz", )
         return plz
 
-    def clean_password2(self):
-        # Check that the two password entries match
-        password = self.cleaned_data.get('password')
-        password2 = self.cleaned_data.get('password2')
-        if password and password2 and password != password2:
-            raise forms.ValidationError("Passwords don't match")
-        return password
 
-    def save(self, commit=True):
-        user = super(UserForm, self).save(commit=False)
-        user.set_password(self.cleaned_data["password"])
-        if commit:
-            user.save()
-        return user
+class UserUpdateForm(forms.ModelForm):
+    email = forms.EmailField()
+
+    class Meta:
+        model = User
+        fields = ['username', 'email']
+
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['image']
