@@ -1,10 +1,13 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
+<<<<<<< HEAD
 from mysite.forms import UserForm, ReservationsForm
+=======
+from mysite.forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+>>>>>>> master
 from django.contrib.auth.hashers import make_password
 from mysite.models import ReservationForm
 import uuid
-
 
 def home(request):
     return render(request, 'pages/index.html')
@@ -70,10 +73,12 @@ def logout(request):
 
 def register(request):
     if request.method == "POST":
-        form = UserForm(request.POST)
+        form = UserRegisterForm(request.POST)
         if form.is_valid():
-            form.password = make_password('password')
+            # form.password = make_password('password')
             form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Account created for {username}! You are now able to log in!')
             return redirect('login')
         else:
             messages.error(request, 'Ups da ist was vergessen gegangen :(')
@@ -81,7 +86,11 @@ def register(request):
                 'form': form,
             })
     else:
+<<<<<<< HEAD
         form = UserForm()
+=======
+        form = UserRegisterForm()
+>>>>>>> master
         return render(request, 'registration/register.html', {
             'form': form,
         })
@@ -90,6 +99,7 @@ def register(request):
 def about(request):
     return render(request, 'pages/about.html')
 
+<<<<<<< HEAD
 
 def profile(request):
     if request.method == "POST":
@@ -98,3 +108,24 @@ def profile(request):
         all_records = ReservationForm.objects.filter(user_id=request.user.id)
         return render(request, 'pages/Profil.html', {'all_records': all_records})
     return render(request, 'pages/Profil.html')
+=======
+@login_required
+def profile(request):
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f'Your account has been updated!')
+            return redirect('profile')
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+
+    context = {
+        'u_form': u_form,
+        'p_form': p_form
+    }
+    return render(request, 'pages/profile.html', context)
+>>>>>>> master

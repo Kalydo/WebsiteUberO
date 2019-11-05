@@ -1,4 +1,5 @@
 from django import forms
+<<<<<<< HEAD
 from .models import User_from_my_db, ReservationForm
 from datetimepicker.widgets import DateTimePicker
 
@@ -39,6 +40,22 @@ class UserForm(forms.ModelForm):
         model = User_from_my_db
         fields = ('username', 'email', 'first_name',
                   'last_name', 'street', 'street_number', 'city', 'plz', 'password',)
+=======
+from django.contrib.auth.forms import UserCreationForm
+
+from .models import User_from_my_db, Profile
+from django.contrib.auth.models import User
+
+from django.contrib.auth import hashers
+
+
+class UserRegisterForm(UserCreationForm):
+
+    class Meta:
+        model = User_from_my_db
+        fields = ('username','password1', 'password2', 'email', 'first_name',
+                  'last_name', 'street', 'street_number', 'city', 'plz')
+>>>>>>> master
 
         labels = {
             'username': 'Benutzername',
@@ -82,6 +99,7 @@ class UserForm(forms.ModelForm):
             raise forms.ValidationError("Bitte gib eine gültige Postleitzahl ein", code="missing_plz", )
         return plz
 
+<<<<<<< HEAD
     def clean_password2(self):
         # Check that the two password entries match
         password = self.cleaned_data.get('password')
@@ -96,3 +114,18 @@ class UserForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+=======
+
+class UserUpdateForm(forms.ModelForm):
+    email = forms.EmailField()
+
+    class Meta:
+        model = User
+        fields = ['username', 'email']
+
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['image']
+>>>>>>> master

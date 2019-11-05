@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <h1>Das ist Unsere Taxi Webseite</h1>
+    <div class="row justify-content-center">
+    <h2>Das ist Unsere Taxi Webseite</h2>
+    </div>
+    <div class="border-top pt-3">
     <p>Hier entsteht das About</p>
     <img src="{% static 'images/Zugeschnittenes Profilbild.jpg' %}" style="height: 300px">
     <h2> Florian Kürschner</h2>
@@ -9,4 +12,5 @@
         CsBe Computerschule haben wir eine kleine Webseite erstellt. Hier kann
         man sich, nach einem lnangen Ausgang :) ein Taxi bestellen. Das einen sicher
         Nachhause bringt.</p>
+    </div>
 {% endblock %}
