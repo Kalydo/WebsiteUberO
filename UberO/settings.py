@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'mysite',
-
+    'datetimepicker',
+    'bootstrap_datepicker_plus',
 ]
 
 BOOTSTRAP4 = {
@@ -134,6 +135,3 @@ MEDIA_URL = '/media/'
 LOGIN_REDIRECT_URL = '/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 AUTH_USER_MODEL = 'mysite.User_from_my_db'
-LOGIN_URL = 'login'
-
-

@@ -1,6 +1,6 @@
 from django import forms
+from .models import User_from_my_db, ReservationForm
 from django.contrib.auth.forms import UserCreationForm
-from .models import User_from_my_db, Profile, ReservationForm
 from django.contrib.auth.models import User
 
 
@@ -9,7 +9,7 @@ class ReservationsForm(forms.ModelForm):
     class Meta:
         model = ReservationForm
         fields = ('title', 'ticket_number', 'taxi_driver',
-                  'from_street', 'from_street_number', 'from_plz', 'from_loc',
+                  'from_street', 'from_street_number', 'from_plz','from_loc',
                   'to_street', 'to_street_number', 'to_plz', 'to_loc', 'order_time',
                   )
 
@@ -29,7 +29,10 @@ class ReservationsForm(forms.ModelForm):
         }
 
 
-class UserRegisterForm(UserCreationForm):
+class UserForm(UserCreationForm):
+    email = forms.EmailField(label='E-Mail')
+    first_name = forms.CharField(label='Name')
+    last_name = forms.CharField(label='Nachname')
 
     class Meta:
         model = User_from_my_db
@@ -78,32 +81,12 @@ class UserRegisterForm(UserCreationForm):
             raise forms.ValidationError("Bitte gib eine gültige Postleitzahl ein", code="missing_plz", )
         return plz
 
-    def clean_password2(self):
-        # Check that the two password entries match
-        password = self.cleaned_data.get('password')
-        password2 = self.cleaned_data.get('password2')
-        if password and password2 and password != password2:
-            raise forms.ValidationError("Stimmt nicht überein")
-        return password
-
-    def save(self, commit=True):
-        user = super(UserForm, self).save(commit=False)
-        user.set_password(self.cleaned_data["password"])
-        if commit:
-            user.save()
-        return user
-
 
 class UserUpdateForm(forms.ModelForm):
     email = forms.EmailField()
 
     class Meta:
-        model = User
-        fields = ['username', 'email']
-
-
-class ProfileUpdateForm(forms.ModelForm):
-    class Meta:
-        model = Profile
-        fields = ['image']
+        model = User_from_my_db
+        fields = ['username', 'email', 'last_name', 'first_name', 'street', 'street_number',
+                  'plz', 'city', 'image']
 
