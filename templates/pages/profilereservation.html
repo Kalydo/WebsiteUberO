@@ -6,23 +6,23 @@
     {% if all_records %}
         <table class="table">
         <thead>
-        <tr>
-            <th scope="col">User</th>
-            <th scope="col">Ticketnummer</th>
-            <th scope="col">Bestellzeit</th>
-            <th scope="col">Taxifahrer</th>
-            <th scope="col">Anzahl Personen</th>
-        </tr>
+            <tr>
+                <th scope="col">User</th>
+                <th scope="col">Ticketnummer</th>
+                <th scope="col">Bestellzeit</th>
+                <th scope="col">Taxifahrer</th>
+                <th scope="col">Anzahl Personen</th>
+            </tr>
         </thead>
         {% for record in all_records %}
             <tbody>
-            <tr>
-                <th scope="row">{{ record.user }}</th>
-                <td>{{ record.ticket_number }}</td>
-                <td>{{ record.order_time }}</td>
-                <td>{{ record.taxi_driver }}</td>
-                <td>{{ record.title }}</td>
-            </tr>
+                <tr>
+                    <th scope="row">{{ record.user }}</th>
+                    <td>{{ record.ticket_number }}</td>
+                    <td>{{ record.order_time }}</td>
+                    <td>{{ record.taxi_driver }}</td>
+                    <td>{{ record.title }}</td>
+                </tr>
             </tbody>
         {% endfor %}
     {% endif %}

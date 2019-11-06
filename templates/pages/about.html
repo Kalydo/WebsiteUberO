@@ -2,11 +2,15 @@
 {% load static %}
 {% block content %}
     <h1>Das ist Unsere Taxi Webseite</h1>
-    <p>Hier entsteht das About</p>
-    <img src="{% static 'images/Zugeschnittenes Profilbild.jpg' %}" style="height: 300px">
-    <h2> Florian Kürschner</h2>
+    <img src="{% static '/images/profil bild quadro.PNG' %}" class="rounded-circle account-img">
+    <h3> Florian Kürschner</h3>
     <p>Hallo zusammen mein Name ist Florian. Im Rahmen einer Schularbeit bei der
         CsBe Computerschule haben wir eine kleine Webseite erstellt. Hier kann
         man sich, nach einem lnangen Ausgang :) ein Taxi bestellen. Das einen sicher
         Nachhause bringt.</p>
+    <img src="{% static '/images/default.jpg' %}" class="rounded-circle account-img">
+    <h3>Sladjan Vasic</h3>
+    <p>Hallo ich bin Sladjan ich habe auch mitgeholfen diese Webseite zu gestalten.
+    Ich gehe zusammen mit Florian in die Schule und wir haben in Teamarbeit diese
+    Webseite erstellt.</p>
 {% endblock %}

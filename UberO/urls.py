@@ -25,14 +25,14 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('home/', mysite_views.home, name="index"),
+    path('', mysite_views.home, name="index"),
     path('register/', mysite_views.register, name="register"),
     path('about/', mysite_views.about, name="about"),
     path('reservation/', mysite_views.reservation, name="reservation"),
     path('profile/', mysite_views.profile, name="profile"),
     path('profileinfo/', mysite_views.profileinfo, name="profileinfo"),
     path('profilereservation', mysite_views.profilereservation, name="profilereservation"),
-    path('', mysite_views.index, name="homepage"),
+   # path('', mysite_views.index, name="homepage"),
     path('logout/', auth_views.LogoutView.as_view(template_name='registration/logged_out.html'), name='logout'),
     path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login')
 ]
@@ -40,3 +40,4 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += staticfiles_urlpatterns()
