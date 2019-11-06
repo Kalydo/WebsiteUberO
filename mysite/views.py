@@ -90,9 +90,8 @@ def register(request):
 def about(request):
     return render(request, 'pages/about.html')
 
-
 @login_required
-def profile(request):
+def profileinfo(request):
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, request.FILES, instance=request.user)
         if u_form.is_valid():
@@ -105,4 +104,13 @@ def profile(request):
     context = {
         'u_form': u_form,
     }
-    return render(request, 'pages/profile.html', context)
+    return render(request, 'pages/profileinfo.html', context)
+
+
+def profile(request):
+    return render(request, 'pages/profile.html')
+
+
+def profilereservation(request):
+    all_records = ReservationForm.objects.filter(user_id=request.user.id)
+    return render(request, 'pages/profilereservation.html', {'all_records': all_records})
