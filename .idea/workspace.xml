@@ -2,30 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="136efedf-3491-4f9b-9043-a00c1a8d036d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/media/profile_pics/default.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/media/profile_pics/sladjan.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/pages/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/UberO.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/UberO.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/WebsiteUberO.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Django_Lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UberO/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/UberO/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UberO/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/UberO/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/migrations/0002_reservationform.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/migrations/0003_auto_20191105_1728.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/migrations/0004_auto_20191105_1750.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/migrations/0005_auto_20191105_1800.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/migrations/0006_auto_20191105_1923.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/migrations/0007_auto_20191105_2100.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/migrations/0008_auto_20191105_2110.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/migrations/0009_auto_20191105_2153.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/migrations/0010_auto_20191105_2153.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/migrations/0011_auto_20191105_2203.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/migrations/0012_reservationform_user.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pages/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/logged_out.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/logged_out.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,13 +65,6 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-        <item name="mysite_profile: table" type="3d80ac25:SqliteImplModel$Table" />
-      </path>
     </expand>
     <select />
   </component>
@@ -92,24 +90,25 @@
   <component name="ProjectId" id="1SCn3ndbOCj5mptAv8dmWes02aY" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/media" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\vmadmin\PycharmProjects\WebsiteUberO\static\media" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\retor\PycharmProjects\WebsiteUberO\static" />
       <recent name="C:\Users\retor\PycharmProjects\UberO\mysite\static\images" />
       <recent name="C:\Users\retor\PycharmProjects\UberO\mysite\static" />
       <recent name="C:\Users\retor\PycharmProjects\UberO\templates\pages" />
       <recent name="C:\Users\retor\PycharmProjects\UberO\templates\css" />
-      <recent name="C:\Users\retor\PycharmProjects\UberO\templates" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\vmadmin\PycharmProjects\WebsiteUberO\static\media" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -124,7 +123,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Django server.WebsiteUberO">
     <configuration name="UberO" type="Python.DjangoServer" factoryName="Django server">
       <module name="UberO" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -141,6 +140,30 @@
       <option name="launchJavascriptDebuger" value="false" />
       <option name="port" value="8000" />
       <option name="host" value="localhost" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="WebsiteUberO" type="Python.DjangoServer" factoryName="Django server">
+      <module name="WebsiteUberO" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="UberO.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
       <option name="additionalOptions" value="" />
       <option name="browserUrl" value="" />
       <option name="runTestServer" value="false" />
@@ -195,6 +218,8 @@
       <workItem from="1572944310286" duration="1399000" />
       <workItem from="1572945727180" duration="11302000" />
       <workItem from="1572957506252" duration="19796000" />
+      <workItem from="1572992667347" duration="4395000" />
+      <workItem from="1573018988215" duration="4981000" />
     </task>
     <servers />
   </component>
@@ -206,7 +231,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

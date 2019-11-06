@@ -1,6 +1,7 @@
+from PIL import Image
 from django.contrib.auth.models import User, AbstractUser
 from django.db import models
-from PIL import Image
+
 
 DRIVER_CHOICES = (
     ('max', 'Max'),
@@ -28,7 +29,6 @@ class User_from_my_db(AbstractUser):
     city = models.CharField(max_length=50, blank=True)
 
 
-<<<<<<< HEAD
 class ReservationForm(models.Model):
     user = models.ForeignKey(User_from_my_db, on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=50, choices=COUNT_CHOICES, blank=True)
@@ -44,7 +44,7 @@ class ReservationForm(models.Model):
     to_street_number = models.CharField(max_length=50, null=True)
     to_plz = models.PositiveIntegerField(blank=True, null=True)
 
-=======
+
 class Profile(models.Model):
     user = models.OneToOneField(User_from_my_db, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
@@ -61,4 +61,3 @@ class Profile(models.Model):
             output_size = (300, 300)
             img.thumbnail(output_size)
             img.save(self.image.path)
->>>>>>> master

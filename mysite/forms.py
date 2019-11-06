@@ -1,7 +1,7 @@
 from django import forms
-<<<<<<< HEAD
-from .models import User_from_my_db, ReservationForm
-from datetimepicker.widgets import DateTimePicker
+from django.contrib.auth.forms import UserCreationForm
+from .models import User_from_my_db, Profile, ReservationForm
+from django.contrib.auth.models import User
 
 
 class ReservationsForm(forms.ModelForm):
@@ -9,7 +9,7 @@ class ReservationsForm(forms.ModelForm):
     class Meta:
         model = ReservationForm
         fields = ('title', 'ticket_number', 'taxi_driver',
-                  'from_street', 'from_street_number', 'from_plz','from_loc',
+                  'from_street', 'from_street_number', 'from_plz', 'from_loc',
                   'to_street', 'to_street_number', 'to_plz', 'to_loc', 'order_time',
                   )
 
@@ -29,33 +29,12 @@ class ReservationsForm(forms.ModelForm):
         }
 
 
-class UserForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Passwort wiederholen', widget=forms.PasswordInput)
-    email = forms.EmailField(label='E-Mail')
-    first_name = forms.CharField(label='Name')
-    last_name = forms.CharField(label='Nachname')
-
-    class Meta:
-        model = User_from_my_db
-        fields = ('username', 'email', 'first_name',
-                  'last_name', 'street', 'street_number', 'city', 'plz', 'password',)
-=======
-from django.contrib.auth.forms import UserCreationForm
-
-from .models import User_from_my_db, Profile
-from django.contrib.auth.models import User
-
-from django.contrib.auth import hashers
-
-
 class UserRegisterForm(UserCreationForm):
 
     class Meta:
         model = User_from_my_db
-        fields = ('username','password1', 'password2', 'email', 'first_name',
+        fields = ('username', 'email', 'first_name',
                   'last_name', 'street', 'street_number', 'city', 'plz')
->>>>>>> master
 
         labels = {
             'username': 'Benutzername',
@@ -99,7 +78,6 @@ class UserRegisterForm(UserCreationForm):
             raise forms.ValidationError("Bitte gib eine gültige Postleitzahl ein", code="missing_plz", )
         return plz
 
-<<<<<<< HEAD
     def clean_password2(self):
         # Check that the two password entries match
         password = self.cleaned_data.get('password')
@@ -114,7 +92,7 @@ class UserRegisterForm(UserCreationForm):
         if commit:
             user.save()
         return user
-=======
+
 
 class UserUpdateForm(forms.ModelForm):
     email = forms.EmailField()
@@ -128,4 +106,4 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['image']
->>>>>>> master
+
