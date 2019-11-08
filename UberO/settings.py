@@ -39,8 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'mysite',
-    'datetimepicker',
-    'bootstrap_datepicker_plus',
 ]
 
 BOOTSTRAP4 = {

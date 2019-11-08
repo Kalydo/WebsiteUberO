@@ -48,13 +48,13 @@ def reservation(request):
             messages.success(request, f'Bestellung mit der Nummer {ticket_number} wurde erstellt.')
             return redirect('reservation')
         else:
-            messages.error(request, 'Ups da ist was vergessen gegangen:(')
-            return render(request, 'pages/Bestellung.html', {
+            messages.error(request, 'Ups da ist was vergessen gegangen :(')
+            return render(request, 'pages/bestellung.html', {
                 'form': form
             })
     else:
         form = ReservationsForm()
-        return render(request, 'pages/Bestellung.html', {
+        return render(request, 'pages/bestellung.html', {
             'form': form
         })
 
@@ -72,7 +72,6 @@ def register(request):
     if request.method == "POST":
         form = UserForm(request.POST)
         if form.is_valid():
-            # form.password = make_password('password')
             form.save()
             return redirect('login')
         else:

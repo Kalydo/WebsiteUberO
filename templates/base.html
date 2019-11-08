@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href='{% static "/css/main.css" %}'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Homepage</title>
+    <title>UberO</title>
 </head>
 <header>
     <nav class="py-2 navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
@@ -23,16 +23,17 @@
             <div class="collapse navbar-collapse" id="navbarToggle">
                 <div class="navbar-nav mr-auto">
                     <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
+                    {% if user.is_authenticated %}
+                     <a class="nav-item nav-link" href="{% url 'reservation' %}">Reservierung</a>
+                    {% endif %}
                 </div>
                 <div class="navbar-nav">
                     {% if user.is_authenticated and user.is_superuser %}
                         <a class="nav-item nav-link" href="{% url 'profile' %}">{{ user.username }}'s Profile</a>
                         <a class="nav-item nav-link" href="/admin">Control Panel</a>
-                        <a class="nav-item nav-link" href="{% url 'reservation' %}">Reservierung</a>
                         <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
                     {% elif user.is_authenticated %}
                         <a class="nav-item nav-link" href="{% url 'profile' %}">{{ user.username }}'s Profile</a>
-                        <a class="nav-link" href="{% url 'reservation' %}">Reservierung</a>
                         <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
                     {% else %}
                         <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
@@ -52,7 +53,10 @@
     {% endfor %}
 {% endif %}
 <div class="container" style="margin-bottom: 60px; margin-top: 60px;">
-    {% block content %}{% endblock %}
+    {% block content %}
+        <!-- Hier werden die anderen Pages, die einen
+        "extends base.html" beinhalten, eingefügt -->
+    {% endblock %}
     <footer id="sticky-footer" class="py-2 bg-dark text-white-50 fixed-bottom">
         <div class="row">
             <div style="left: 20px; margin-left: 30px">

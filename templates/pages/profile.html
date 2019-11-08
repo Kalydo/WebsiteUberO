@@ -6,6 +6,11 @@
     <link rel="stylesheet" type="text/css" href='{% static "css/style.css" %}'>
     <link rel="stylesheet" type="text/css" href='{% static "css/main.css" %}'>
 {% block content %}
+      <div class="row justify-content-center">
+        <h2>Profil von {{ user.username }}</h2>
+    </div>
+    <div class="border-top pt-3">
+    </div>
     <div class="content-section">
         <div class="media">
             <img class="rounded-circle account-img" src="{{ user.image.url }}" style="height: 130px">

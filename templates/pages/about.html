@@ -1,16 +1,28 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <h1>Das ist Unsere Taxi Webseite</h1>
+    <div class="row justify-content-center">
+        <h2>Das ist Unsere Taxi Webseite</h2>
+    </div>
+        <div class="border-top pt-3">
+    </div>
+
+    <div class="row justify-content-center">
     <img src="{% static '/images/profil bild quadro.PNG' %}" class="rounded-circle account-img">
+    </div>
     <h3> Florian Kürschner</h3>
     <p>Hallo zusammen mein Name ist Florian. Im Rahmen einer Schularbeit bei der
         CsBe Computerschule haben wir eine kleine Webseite erstellt. Hier kann
-        man sich, nach einem lnangen Ausgang :) ein Taxi bestellen. Das einen sicher
-        Nachhause bringt.</p>
-    <img src="{% static '/images/default.jpg' %}" class="rounded-circle account-img">
+        man sich zum Beispiel nach einer langen Partynacht :') ein Taxi bestellen, welches einen sicher
+        nach Hause bringt.</p>
+
+    <div class="row justify-content-center">
+    <img src="{% static '/images/sladjan.jpg' %}" class="rounded-circle account-img">
+    </div>
     <h3>Sladjan Vasic</h3>
-    <p>Hallo ich bin Sladjan ich habe auch mitgeholfen diese Webseite zu gestalten.
-    Ich gehe zusammen mit Florian in die Schule und wir haben in Teamarbeit diese
-    Webseite erstellt.</p>
+    <p>Hallo ich bin Sladjan und ich habe ebenfalls mitgeholfen, diese Webseite zu gestalten.
+    Die Projektarbeit hat viel Zeit in Anspruch genommen, da wir zum Teil verschiedene Ansichten über die Funktionsweise der Website hatten
+    Diese Differenzen konnten wir aber beseitigen, sodass unsere Website Form angenommen hat und ich sagen muss, ja doch, wir haben einiges geschafft!
+    </p>
+
 {% endblock %}

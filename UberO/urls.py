@@ -32,7 +32,6 @@ urlpatterns = [
     path('profile/', mysite_views.profile, name="profile"),
     path('profileinfo/', mysite_views.profileinfo, name="profileinfo"),
     path('profilereservation', mysite_views.profilereservation, name="profilereservation"),
-   # path('', mysite_views.index, name="homepage"),
     path('logout/', auth_views.LogoutView.as_view(template_name='registration/logged_out.html'), name='logout'),
     path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login')
 ]
